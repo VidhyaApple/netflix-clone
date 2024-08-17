@@ -1,0 +1,11 @@
+@import './MediaQueries.scss';
+
+.login-container{
+
+    @include tablet{
+        width: 50%;
+    }
+    @include mobile {
+        width: 100%;
+    }
+}

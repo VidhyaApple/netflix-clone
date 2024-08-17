@@ -1,0 +1,94 @@
+
+// Define breakpoints in variables using arithmetic
+$desktop-lg-min: 1281px;
+$desktop-sm-min: 1025px;
+$desktop-sm-max: 1280px;
+$tablet-min: 768px;
+$tablet-max: 1024px;
+$mobile-sm-min: 481px;
+$mobile-sm-max: 767px;
+$mobile-lg-min: 320px;
+$mobile-lg-max: 480px;
+$mobile-max: 767px;
+
+/* 
+  ##Device = Desktops
+  ##Screen = 1281px to higher resolution desktops
+*/
+@mixin desktop-lg {
+  @media (min-width: $desktop-lg-min) {
+    @content;
+  }
+}
+
+/* 
+  ##Device = Laptops, Desktops
+  ##Screen = B/w 1025px to 1280px
+*/
+@mixin desktop-sm {
+  @media (min-width: $desktop-sm-min) and (max-width: $desktop-sm-max) {
+    @content;
+  }
+}
+
+/* 
+  ##Device = Laptops, Desktops
+  ##Screen = 1025px and higher
+  Note: This mixin overlaps with the desktop-sm above
+*/
+@mixin desktop {
+  @media (min-width: $desktop-sm-min) {
+    @content;
+  }
+}
+
+/* 
+  ##Device = Tablets, Ipads (portrait)
+  ##Screen = B/w 768px to 1024px
+*/
+@mixin tablet {
+  @media (min-width: $tablet-min) and (max-width: $tablet-max) {
+    @content;
+  }
+}
+
+/* 
+  ##Device = Tablets, Ipads (landscape)
+  ##Screen = B/w 768px to 1024px
+  ##Orientation = landscape
+*/
+@mixin tablet-landscape {
+  @media (min-width: $tablet-min) and (max-width: $tablet-max) and (orientation: landscape) {
+    @content;
+  }
+}
+
+/* 
+  ##Device = Low Resolution Tablets, Mobiles (Landscape)
+  ##Screen = B/w 481px to 767px
+*/
+@mixin mobile-sm {
+  @media (min-width: $mobile-sm-min) and (max-width: $mobile-sm-max) {
+    @content;
+  }
+}
+
+/* 
+  ##Device = Most of the Smartphones Mobiles (Portrait)
+  ##Screen = B/w 320px to 480px
+*/
+@mixin mobile-lg {
+  @media (min-width: $mobile-lg-min) and (max-width: $mobile-lg-max) {
+    @content;
+  }
+}
+
+/* 
+  ##Device = Most of the Smartphones Mobiles
+  ##Screen = B/w 320px to 767px
+*/
+@mixin mobile {
+  @media (min-width: $mobile-lg-min) and (max-width: $mobile-sm-max) {
+    @content;
+  }
+}
